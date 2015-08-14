@@ -4,6 +4,10 @@
     "description": "Integration of girder and cornerstone",
     "dependencies": {
         "cornerstoneTools": "0.6.2",
-        "dicomParser": "1.1.0"
+        "cornerstoneWADOImageLoader": "0.6.0",
+        "dicomParser": "1.1.5"
+    },
+    "resolutions": {
+        "cornerstone": "0.8.1"
     }
 }
