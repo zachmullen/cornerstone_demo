@@ -2,7 +2,7 @@ girder.views.cornerstone_demo_CornerstoneView = girder.View.extend({
     initialize: function (settings) {
         this.files = settings.files;
         this.item = settings.item;
-        this.imageUrls = _.map(this.files.models, function (file) {
+        this.imageIds = _.map(this.files.models, function (file) {
             // HACK see https://github.com/chafey/cornerstoneWADOImageLoader/issues/16
             return 'dicomweb://' + window.location.host + file.downloadUrl();
         });
@@ -16,9 +16,14 @@ girder.views.cornerstone_demo_CornerstoneView = girder.View.extend({
     _initCornerstone: function () {
         var renderer = this.$('.g-render-target')[0];
         cornerstone.enable(renderer);
+        cornerstoneTools.mouseInput.enable(renderer);
+        cornerstoneTools.mouseWheelInput.enable(renderer);
 
-        cornerstone.loadAndCacheImage(this.imageUrls[0]).then(function (image) {
+        cornerstone.loadAndCacheImage(this.imageIds[0]).then(function (image) {
             cornerstone.displayImage(renderer, image);
+            cornerstoneTools.wwwc.activate(renderer, 1);
+            cornerstoneTools.stackScroll.activate(renderer, 1);
+            cornerstoneTools.stackScrollWheel.activate(renderer);
         });
     }
 });
