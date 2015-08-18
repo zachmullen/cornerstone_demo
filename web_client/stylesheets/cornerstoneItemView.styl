@@ -1,5 +1,8 @@
 @import 'nib'
 
+$overlayPaddingV = 5px
+$overlayPaddingH = 10px
+
 .g-cornerstone-demo-container
   margin-bottom 15px
   position relative
@@ -8,7 +11,19 @@
     background-color black
     height 500px
 
-  .g-gui-container
+  .g-ui-overlay
     position absolute
-    top 5px
-    right 5px
+    color white
+    font-size 14px
+
+    &[top]
+      top $overlayPaddingV
+    &[bottom]
+      bottom $overlayPaddingV
+    &[left]
+      left $overlayPaddingH
+    &[right]
+      right $overlayPaddingH
+
+    .g-slice-slider
+      width 150px

@@ -6,6 +6,18 @@ girder.views.cornerstone_demo_CornerstoneView = girder.View.extend({
         'mousewheel .g-render-target': '_ignore',
         'input .g-slice-slider': function (e) {
             this.changeSlice(window.parseInt(e.target.value, 10));
+        },
+        'CornerstoneNewImage': function () {
+            var index = this.stack.currentImageIdIndex;
+            this.$('.g-slice-slider').val(index);
+            this.$('.g-slice-display').text([index + 1, this.imageIds.length].join(' / '));
+        },
+        'CornerstoneImageRendered': function (e, data) {
+            var viewport = data.viewport;
+            this.$('.g-wl-display').text([
+                Math.round(viewport.voi.windowWidth),
+                Math.round(viewport.voi.windowCenter)
+            ].join(' / '));
         }
     },
 
@@ -45,11 +57,11 @@ girder.views.cornerstone_demo_CornerstoneView = girder.View.extend({
             cornerstoneTools.mouseInput.enable(renderer);
             cornerstoneTools.mouseWheelInput.enable(renderer);
             cornerstone.displayImage(renderer, image);
-            cornerstoneTools.wwwc.activate(renderer, 4); // right click for window/level
+            cornerstoneTools.wwwc.activate(renderer, 1);
             cornerstoneTools.addToolState(renderer, 'stack', this.stack);
             cornerstoneTools.stackPrefetch.enable(renderer);
-            cornerstoneTools.stackScroll.activate(renderer, 1);
-            cornerstoneTools.stackScrollWheel.activate(renderer);
+            //cornerstoneTools.stackScroll.activate(renderer, 1);
+            //cornerstoneTools.stackScrollWheel.activate(renderer);
         }, this));
     },
 

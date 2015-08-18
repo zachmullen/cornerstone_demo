@@ -1,3 +1,10 @@
 .g-render-target.cornerstone-enabled-image
-.g-gui-container
-input.g-slice-slider(type="range")
+.g-ui-overlay(left top)
+  input.g-slice-slider(type="range")
+.g-ui-overlay(right top)
+.g-ui-overlay(left bottom)
+  span Slice:&nbsp;
+  span.g-slice-display
+.g-ui-overlay(right bottom)
+  span W/L:&nbsp;
+  span.g-wl-display
