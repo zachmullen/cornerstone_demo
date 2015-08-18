@@ -8,7 +8,8 @@ module.exports = function (grunt) {
             'plugins/cornerstone_demo/bower_components/cornerstone/dist/cornerstone.js',
             'plugins/cornerstone_demo/bower_components/cornerstoneMath/dist/cornerstoneMath.js',
             'plugins/cornerstone_demo/bower_components/cornerstoneTools/dist/cornerstoneTools.js',
-            'plugins/cornerstone_demo/bower_components/cornerstoneWADOImageLoader/dist/cornerstoneWADOImageLoader.js'
+            'plugins/cornerstone_demo/bower_components/cornerstoneWADOImageLoader/dist/cornerstoneWADOImageLoader.js',
+            'plugins/cornerstone_demo/xtk.plugin.shim.js'
         ].concat(jsFiles[target]);
 
         grunt.config.set('uglify.plugin_cornerstone_demo.files', jsFiles);
