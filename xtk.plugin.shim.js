@@ -1,5 +1,5 @@
 (function () {
-    if (module && module.exports) {
-        dicomParser = module.exports;
+    if (window.module && window.module.exports) {
+        dicomParser = window.module.exports;
     }
 })();
