@@ -1,5 +1,3 @@
 name: Cornerstone integration demo
 description: Allows inline display of Cornerstone-supported datasets within Girder
 version: 0.1.0
-grunt:
-    file: Gruntfile.js
